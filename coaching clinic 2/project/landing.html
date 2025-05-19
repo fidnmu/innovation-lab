@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaNusa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .flex::-webkit-scrollbar {
+        display: none;
+      }
+      .flex {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-sky-50 text-slate-800">
+    <!-- Header -->
+    <header  id="beranda" class="bg-teal-700 text-blue p-6 shadow-md">
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <h1 class="text-3xl font-bold">AquaNusa</h1>
+        <nav class="mt-4 sm:mt-0 space-x-4 text-sm sm:text-base">
+          <a href="#beranda" class="hover:underline transition">Beranda</a>
+          <a href="#tentang" class="hover:underline transition">Tentang</a>
+          <a href="#ekosistem" class="hover:underline transition">Ekosistem Laut</a>
+          <a href="#aksi" class="hover:underline transition">Aksi Kami</a>
+          <a href="#peta" class="hover:underline transition">Peta</a>
+          <a href="#kontak" class="hover:underline transition">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-72 sm:h-96" style="background-image: url('https://i.pinimg.com/736x/99/13/70/99137002845928b9509cf537bbb3a3dc.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Selamat Datang di AquaNusa</h2>
+        <p class="mt-2 text-lg text-white px-30">AquaNusa hadir sebagai pelita perubahan, menebar edukasi dan menggerakkan aksi demi menjaga birunya samudra Nusantara.</p>
+        <a href="#kontak" class="mt-6 inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg transition">Gabung Bersama Kami</a>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-10 space-y-12">
+      <section id="tentang">
+        <h2 class="text-2xl font-semibold text-teal-700">AquaNusa</h2>
+        <p class="text-justify mt-2">Laut bukan hanya batas negeri, tapi awal dari kehidupan. Kami percaya perubahan besar dimulai dari langkah kecil dan hati yang peduli. Edukasi adalah cahaya yang menuntun, aksi nyata adalah bukti dari cinta. Setiap individu bisa menjadi agen perubahan bagi laut kita. Bersama AquaNusa, kita rawat birunya samudra demi masa depan yang lebih baik.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold text-teal-700">Tentang AquaNusa</h2>
+        <p class="text-justify mt-2">AquaNusa adalah wujud nyata kepedulian terhadap laut— sebuah komunitas yang mengusung perubahan lewat edukasi, konservasi, dan pemberdayaan pesisir.</p>
+      </section>
+
+      <!-- Ekosistem Laut -->
+        <section id="ekosistem">
+            <h2 class="text-2xl font-semibold text-teal-700 mb-4">Apa Itu Ekosistem Laut?</h2>
+            <h5 class="text-1xl font-semibold text-teal-200 text-justify mb-4">Ekosistem laut adalah jaringan kehidupan yang saling terhubung di dalam birunya samudra. Setiap bagiannya memainkan peran penting dalam menjaga keseimbangan alam dan kehidupan manusia.</h5>
+            <div class="flex space-x-6 overflow-x-auto pb-4 px-3">
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmUtAfQ5f30k6K0tWwGY5OZDO9VAwdEPZ4RA&s" alt="Terumbu Karang" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Terumbu Karang</h3>
+                        <p class="text-justify mt-2">Permata laut yang menjadi rumah bagi ribuan spesies. Indah namun rapuh, terumbu karang rentan memutih akibat naiknya suhu laut akibat pemanasan global.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqeonSo2jhzHrQMaF97ifQWZggkpxvtFd0Hg&s" alt="Estuari" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Estuari</h3>
+                        <p class="text-justify mt-2">Tempat bertemunya air tawar dan air laut, kaya akan nutrisi. Menjadi tempat bertelur dan tumbuh bagi berbagai spesies ikan dan udang.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXPDPegVe9elKdf-BapHwJ_00ism022rlRfBeP_lND-ONuRESMK-HpdIvzAi1IMY79t2s&usqp=CAU" alt="Hutan Bakau" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Hutan Bakau</h3>
+                        <p class="text-justify mt-2">Benteng alami yang melindungi garis pantai dari abrasi dan badai. Akar-akarnya menyaring limbah, menjaga kejernihan laut, dan menjadi tempat hidup beragam makhluk.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR638wCwuWzcjH9nLesOmQOsaDaj2gwLxko5w&s" alt="laguna" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Laguna</h3>
+                        <p class="text-justify mt-2">Cekungan dangkal di pesisir yang terpisah dari laut oleh pasir atau terumbu. Tempat berlindung bagi larva ikan, kerang, dan biota kecil lainnya.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1bg1yvxpGAsEkaaaewYMI011_Bz-gySVUXED-z55XkbbF646iWbxVmwA1gaJPYOCIs0&usqp=CAU" alt="Laut Terbuka" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Laut Terbuka</h3>
+                        <p class="text-justify mt-2">Samudra yang luas dan dalam, menjadi tempat jelajah paus, hiu, dan tuna. Ruang bebas yang menyimpan misteri dan kekayaan hayati yang luar biasa.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgjj--hGugQiVPn5XyeVKfNWNOkYtttT3qZw&s" alt="pantai berpasir dan Berbatu" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Pantai Berpasir dan Berbatu</h3>
+                        <p class="text-justify mt-2">Zona intertidal yang berubah dengan pasang surut. Menjadi habitat kepiting, siput laut, burung pantai, dan tempat rekreasi manusia.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5E-kqBlJJjnTZtYXGPLOe5QldUxArpbNTVQ&s" alt="Laut dangkal tropis" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Laut Dangkal Tropis</h3>
+                        <p class="text-justify mt-2">Perairan hangat dan jernih dengan sinar matahari melimpah. Ideal untuk fotosintesis organisme laut seperti fitoplankton dan lamun.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://asset-2.tstatic.net/kupang/foto/bank/images/gua-kristal-bolok-miliki-terowongan-ke-laut.jpg" alt="Terowongan dan gua laut" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Terowongan dan Gua Laut</h3>
+                        <p class="text-justify mt-2">Struktur bawah laut yang terbentuk alami, menjadi habitat unik bagi karang lunak, spons, dan ikan kecil. Menawarkan tempat persembunyian dan perlindungan alami.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                    <img src="https://statik.tempo.co/data/2022/04/05/id_1100675/1100675_720.jpg" alt="Ekosistem Pulau Kecil" class="w-full h-40 object-cover" />
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-teal-600">Ekosistem Pulau Kecil</h3>
+                        <p class="text-justify mt-2">Gugusan pulau yang menjaga keragaman hayati dan menjadi penyangga ekonomi masyarakat pesisir. Di sinilah manusia dan alam hidup berdampingan dalam harmoni.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      <section id="ancaman">
+        <h2 class="text-2xl font-semibold text-teal-700 px-3">Ancaman terhadap Ekosistem Laut</h2>
+        <ul class="list-disc list-inside mt-2 space-y-1 px-3">
+          <li>Polusi plastik dan limbah industri</li>
+          <li>Penangkapan ikan berlebihan</li>
+          <li>Perubahan iklim dan pemanasan laut</li>
+        </ul>
+      </section>
+
+        <section id="aksi" class="py-12 bg-white">
+          <div class="max-w-6xl mx-auto px-3">
+            <h2 class="text-2xl font-semibold text-teal-700 mb-6">Aksi Kami</h2>
+            <div class="flex space-x-6 overflow-x-auto pb-4">
+              <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                <img src="https://th.bing.com/th/id/OIP.GTcTpyUt8nT2uXh4IBpIFQHaE8?w=246&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="rounded shadow" alt="Kegiatan 1">
+                <h3 class="text-center font-semibold text-teal-800 mt-2">Bersih Pantai</h3>                
+                <p class="text-justify text-gray-700 p-3">Membersihkan sampah plastik dan limbah dari garis pantai secara rutin.</p>
+              </div>
+              <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                <img src="https://www.infopublik.id/resources/album/lingkungan/3_antarafoto-penanaman-mangrove-kendari-150723-jjn-2_compressed.jpg" class="rounded shadow" alt="Kegiatan 1">
+                <h3 class="text-center font-semibold text-teal-800  mt-2">Penanaman Mangrove</h3>                
+                <p class="text-justify text-gray-700 p-3">Menghijaukan pesisir untuk lindungi pantai dan ciptakan habitat alami.</p>
+              </div>
+              <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                <img src="https://tn-bunaken.com/wp-content/uploads/2023/06/WhatsApp-Image-2023-06-09-at-10.13.20.jpeg" class="rounded shadow" alt="Kegiatan 3">
+                <h3 class="text-center font-semibold text-teal-800  mt-2">Rehabilitasi</h3>
+                <p class="text-justify text-gray-700 p-3">Menanam kembali karang yang rusak akibat aktivitas manusia.</p>
+              </div>
+              <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                <img src="https://kabarsumbawa.com/wp-content/uploads/2020/02/WhatsApp-Image-2020-02-13-at-10.16.38-768x576.jpeg" class="rounded shadow" alt="Kegiatan 2">                
+                <h3 class="text-center font-semibold text-teal-800  mt-2">Edukasi Lingkungan</h3>
+                <p class="text-justify text-gray-700 p-3">Mengedukasi masyarakat dan sekolah tentang pentingnya menjaga ekosistem laut.</p>             
+              </div>
+              <div class="bg-white rounded-lg shadow overflow-hidden w-48 flex-shrink-0">
+                <img src="https://th.bing.com/th/id/OIP.KnfEMOXifQCMut5VsLTLSQHaFF?w=234&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="rounded shadow" alt="Kegiatan 2">                
+                <h3 class="text-center font-semibold text-teal-800 mt-2">Penelitian Ekosistem Laut</h3>
+                <p class="text-justify text-gray-700 p-3">Menggali data lokal untuk mendukung konservasi berbasis ilmu.</p>             
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      <!-- Peta Interaktif -->
+      <section id="peta" class="mt-12">
+        <h2 class="text-2xl font-semibold text-teal-700 mb-4">Peta Pantai Interaktif</h2>
+        <div id="map" class="w-full h-96 rounded-lg shadow"></div>
+      </section>
+
+      <script>
+        var map = L.map('map').setView([-8.4963, 119.8870], 13); // Pantai Labuan Bajo
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([-8.4963, 119.8870]).addTo(map)
+          .bindPopup('Pantai Labuan Bajo')
+          .openPopup();
+
+      </script>
+
+      <section id="kontak" class="min-h-screen flex items-start lg:items-center justify-center bg-white px-4 py-12">
+        <div class="w-full max-w-xl">
+          <h2 class="text-2xl md:text-3xl font-semibold text-teal-700">Kontak</h2>
+          <p class="mt-2 text-gray-700">Ingin tahu lebih banyak atau ingin berkontribusi bersama kami? Hubungi kami melalui:</p>
+          <p class="mt-1 text-gray-700">
+            📧 Email:
+            <a href="mailto:aquanusa@gmail.com" class="text-teal-700 hover:underline">aquanusa@gmail.com</a>
+          </p>
+          <p class="text-gray-700">
+            📸 Instagram:
+            <a href="https://instagram.com/aquanusa" target="_blank" class="text-teal-700 hover:underline">@aquanusa</a>
+          </p>
+
+          <form class="mt-6 space-y-4">
+            <input type="text" placeholder="Nama" class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <textarea rows="4" placeholder="Pesan" class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+            <button type="submit" class="w-full bg-teal-600 text-white px-4 py-3 rounded hover:bg-teal-700 transition duration-300">Kirim</button>
+          </form>
+        </div>
+      </section>
+
+
+        <section id="dampak" class="py-12 bg-sky-50">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-semibold text-teal-700 mb-8">Dampak Nyata</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-teal-800 text-xl font-bold">
+            <div>
+                <span id="stat1" class="text-4xl">0</span><br>Relawan Aktif
+            </div>
+            <div>
+                <span id="stat2" class="text-4xl">0</span><br>Kg Sampah Terkumpul
+            </div>
+            <div>
+                <span id="stat3" class="text-4xl">0</span><br>Kegiatan Edukasi
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <script>
+        const counters = [
+            { id: "stat1", value: 150 },
+            { id: "stat2", value: 1200 },
+            { id: "stat3", value: 40 },
+        ];
+
+        counters.forEach(counter => {
+            let i = 0;
+            const el = document.getElementById(counter.id);
+            const update = () => {
+            if (i < counter.value) {
+                i += Math.ceil(counter.value / 50);
+                el.textContent = i > counter.value ? counter.value : i;
+                requestAnimationFrame(update);
+            }
+            };
+            update();
+        });
+        </script>
+
+        <section id="testimoni" class="py-12 bg-sky-100">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-2xl font-semibold text-teal-700 mb-6">Apa Kata Mereka?</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <p class="text-justify italic">“AquaNusa membuat saya sadar pentingnya menjaga laut. Kegiatannya sangat inspiratif!”</p>
+                <div class="mt-4 text-sm text-right font-semibold text-teal-600">– Andi, Relawan</div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <p class="text-justify italic">“Kampanye bersih pantainya seru dan penuh edukasi. Anak-anak juga bisa ikut!”</p>
+                <div class="mt-4 text-sm text-right font-semibold text-teal-600">– Rina, Guru SD</div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <p class="text-justify italic">“Kami dari nelayan merasa didukung. Terima kasih atas pelatihan yang diberikan.”</p>
+                <div class="mt-4 text-sm text-right font-semibold text-teal-600">– Pak Budi, Nelayan Lokal</div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-teal-800 text-white text-center p-4">
+      <p>&copy; 2025 AquaNusa. Semua hak dilindungi.</p>
+    </footer>
+  </body>
+</html>
+        
